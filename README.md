@@ -1,4 +1,3 @@
-```markdown
 # Firebase Kursi 📲🔥
 
 Ushbu kursda biz Firebase platformasining asosiy funksiyalarini ko'rib chiqamiz va ularni amaliy misollar bilan o'rganamiz. Firebase ilovalar yaratish, ma'lumotlar bazasini boshqarish va foydalanuvchilarni autentifikatsiyalash kabi ko'plab imkoniyatlarni taqdim etadi.
@@ -38,4 +37,3 @@ Kurs haqida savollaringiz bo'lsa yoki yordam kerak bo'lsa, quyidagi manzil orqal
 
 - **YouTube**: [Akhror Web](https://www.youtube.com/channel/akhrorweb)
 - **Telegram**: [AkhrorWeb](https://t.me/akhror_web)
-```
