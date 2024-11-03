@@ -1,4 +1,4 @@
-# Firebase Kursi 📲🔥
+# Firebase 📲🔥
 
 Ushbu kursda biz Firebase platformasining asosiy funksiyalarini ko'rib chiqamiz va ularni amaliy misollar bilan o'rganamiz. Firebase ilovalar yaratish, ma'lumotlar bazasini boshqarish va foydalanuvchilarni autentifikatsiyalash kabi ko'plab imkoniyatlarni taqdim etadi.
 
