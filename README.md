@@ -35,5 +35,5 @@ Ushbu kursda biz Firebase platformasining asosiy funksiyalarini ko'rib chiqamiz 
 
 Kurs haqida savollaringiz bo'lsa yoki yordam kerak bo'lsa, quyidagi manzil orqali bog'laning:
 
-- **YouTube**: [Akhror Web](https://www.youtube.com/channel/akhrorweb)
+- **YouTube**: [Akhror Web](https://www.youtube.com/@akhrorweb)
 - **Telegram**: [AkhrorWeb](https://t.me/akhror_web)
