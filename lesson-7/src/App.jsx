@@ -1,18 +1,15 @@
 // react imports
 import { useEffect, useState } from "react";
 
+// custom hooks
+import { useCollection } from "./hooks/useCollection";
+
 // firebase
-import {
-  collection,
-  onSnapshot,
-  addDoc,
-  doc,
-  deleteDoc,
-} from "firebase/firestore";
+import { collection, addDoc, doc, deleteDoc } from "firebase/firestore";
 import { db } from "./firebase/config";
 
 function App() {
-  const [transactions, setTransactions] = useState(null);
+  const { data: transactions } = useCollection("transactions");
 
   const [title, setTitle] = useState(null);
   const [price, setPrice] = useState(null);
@@ -37,21 +34,6 @@ function App() {
       .then(() => console.log("Success"))
       .catch((error) => alert(error.message));
   };
-
-  useEffect(() => {
-    const unsubscribe = onSnapshot(
-      collection(db, "transactions"),
-      (querySnapshot) => {
-        const data = [];
-        querySnapshot.forEach((doc) => {
-          data.push({ id: doc.id, ...doc.data() });
-        });
-        setTransactions(data);
-      }
-    );
-
-    return () => unsubscribe();
-  }, []);
 
   return (
     <div>
