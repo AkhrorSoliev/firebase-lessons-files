@@ -4,3 +4,12 @@ body {
   font-family: "Nunito Sans", sans-serif;
   padding: 50px;
 }
+
+label,
+span {
+  display: block;
+}
+
+label {
+  margin-bottom: 10px;
+}
