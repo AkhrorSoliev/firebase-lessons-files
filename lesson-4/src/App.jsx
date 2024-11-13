@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 // firebase
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, onSnapshot, addDoc } from "firebase/firestore";
 import { db } from "./firebase/config";
 
 function App() {
@@ -25,16 +25,18 @@ function App() {
   };
 
   useEffect(() => {
-    const getDocuments = async () => {
-      const querySnapshot = await getDocs(collection(db, "transactions"));
-      const data = [];
-      querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() });
-      });
-      setTransactions(data);
-    };
+    const unsubscribe = onSnapshot(
+      collection(db, "transactions"),
+      (querySnapshot) => {
+        const data = [];
+        querySnapshot.forEach((doc) => {
+          data.push({ id: doc.id, ...doc.data() });
+        });
+        setTransactions(data);
+      }
+    );
 
-    getDocuments();
+    return () => unsubscribe();
   }, []);
 
   return (
