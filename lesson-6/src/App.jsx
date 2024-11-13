@@ -2,7 +2,13 @@
 import { useEffect, useState } from "react";
 
 // firebase
-import { collection, onSnapshot, addDoc } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  addDoc,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import { db } from "./firebase/config";
 
 function App() {
@@ -11,6 +17,7 @@ function App() {
   const [title, setTitle] = useState(null);
   const [price, setPrice] = useState(null);
 
+  // add new data
   const hanldeSubmit = (e) => {
     e.preventDefault();
     addDoc(collection(db, "transactions"), {
@@ -22,6 +29,13 @@ function App() {
     e.target.reset();
     setTitle(null);
     setPrice(null);
+  };
+
+  // delete data
+  const deleteDocument = (id) => {
+    deleteDoc(doc(db, "transactions", id))
+      .then(() => console.log("Success"))
+      .catch((error) => alert(error.message));
   };
 
   useEffect(() => {
@@ -63,7 +77,9 @@ function App() {
               >
                 <h4>{transaction.title} :</h4>
                 <h4>${transaction.price}</h4>
-                <button>Delete</button>
+                <button onClick={() => deleteDocument(transaction.id)}>
+                  Delete
+                </button>
               </li>
             );
           })}
