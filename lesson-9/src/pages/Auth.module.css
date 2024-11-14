@@ -1,0 +1,58 @@
+.formWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+
+.title {
+  margin-bottom: 15px;
+  font-size: 30px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form label span {
+  margin-bottom: 3px;
+}
+
+.form input {
+  padding: 4px;
+  font-family: inherit;
+  font-size: 18px;
+}
+
+.form button {
+  background-color: transparent;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+  align-self: flex-end;
+  border: 1px solid green;
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: 70px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.form button.disabeled {
+  opacity: 0.5;
+  background-color: green;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.form button:hover {
+  background-color: green;
+  color: #fff;
+}
