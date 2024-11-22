@@ -1,5 +1,5 @@
-// react imports
-import { Outlet } from "react-router-dom";
+// rrd imports
+import { Outlet } from "react-router";
 
 // components
 import Navbar from "../components/Navbar";
@@ -8,9 +8,10 @@ function MainLayout() {
   return (
     <>
       <Navbar />
-      <main className="container">
+      <main>
         <Outlet />
       </main>
+      {/* FOOTER */}
     </>
   );
 }

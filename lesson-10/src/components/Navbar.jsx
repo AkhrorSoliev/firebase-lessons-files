@@ -2,9 +2,10 @@
 import styles from "./Navbar.module.css";
 
 // rrd imports
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router";
 
 function Navbar() {
+  const user = false;
   return (
     <header className={styles.header}>
       <div className="container">
@@ -12,13 +13,15 @@ function Navbar() {
           myMoney
         </Link>
 
-        {false && (
+        {user && (
           <div className={styles.avatar}>
-            <img src="https://picsum.photos/400" alt="user avatar" />
+            <span>Hello, Akhror</span>
+            <img src="https://picsum.photos/400" alt="" />
             <button>Logout</button>
           </div>
         )}
-        {true && (
+
+        {!user && (
           <nav>
             <NavLink to="/login">Login</NavLink>
             <NavLink to="/signup">Signup</NavLink>

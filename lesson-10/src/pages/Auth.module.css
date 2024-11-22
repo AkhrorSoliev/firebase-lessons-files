@@ -45,7 +45,7 @@
   transition: 0.2s;
 }
 
-.form button.disabeled {
+.form button.disabled {
   opacity: 0.5;
   background-color: green;
   color: #fff;
