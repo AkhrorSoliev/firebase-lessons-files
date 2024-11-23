@@ -4,19 +4,20 @@ import styles from "./Auth.module.css";
 // react
 import { useState } from "react";
 
+// custom hooks
+import { useSignup } from "../hooks/useSignup";
+
 function Signup() {
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { signup } = useSignup();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log({
-      displayname: displayName,
-      email: email,
-      password: password,
-    });
+    signup(displayName, email, password);
 
     setDisplayName("");
     setPassword("");
