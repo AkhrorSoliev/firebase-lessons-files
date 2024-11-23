@@ -1,5 +1,5 @@
 // firebase
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 import { toast } from "sonner";
 
@@ -10,7 +10,11 @@ export const useFirestore = () => {
       .catch((error) => toast.error(error));
   };
 
-  const deleteDocument = () => {};
+  const deleteDocument = (id) => {
+    deleteDoc(doc(db, "transactions", id))
+      .then(() => toast.success("Successfully deleted"))
+      .catch((error) => toast.error(error));
+  };
 
   return { addDocument, deleteDocument };
 };
