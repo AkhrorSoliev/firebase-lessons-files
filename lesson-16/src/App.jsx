@@ -12,8 +12,11 @@ import Signup from "./pages/Signup";
 // components
 import ProtectedRoutes from "./components/ProtectedRoutes";
 
+// custom hooks
+import { useGlobalContext } from "./hooks/useGlobalContext";
+
 function App() {
-  const user = false;
+  const { user } = useGlobalContext();
   const routes = createBrowserRouter([
     {
       path: "/",
