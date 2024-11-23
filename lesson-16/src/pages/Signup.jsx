@@ -1,23 +1,56 @@
 // styles
 import styles from "./Auth.module.css";
 
+// react
+import { useState } from "react";
+
 function Signup() {
+  const [displayName, setDisplayName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log({
+      displayname: displayName,
+      email: email,
+      password: password,
+    });
+
+    setDisplayName("");
+    setPassword("");
+    setEmail("");
+  };
+
   const loading = false;
   return (
     <div className={styles.formWrapper}>
-      <form className={styles.form}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <h1 className={styles.title}>Signup</h1>
         <label>
           <span>Display Name:</span>
-          <input type="text" />
+          <input
+            type="text"
+            onChange={(e) => setDisplayName(e.target.value)}
+            value={displayName}
+          />
         </label>
         <label>
           <span>Email:</span>
-          <input type="email" />
+          <input
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
         </label>
         <label>
           <span>Password:</span>
-          <input type="password" />
+          <input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
         </label>
 
         {!loading && <button>Signup</button>}
