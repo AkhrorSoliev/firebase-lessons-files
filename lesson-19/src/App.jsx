@@ -16,7 +16,7 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 import { useGlobalContext } from "./hooks/useGlobalContext";
 
 function App() {
-  const { user } = useGlobalContext();
+  const { user, authReady } = useGlobalContext();
   const routes = createBrowserRouter([
     {
       path: "/",
@@ -50,7 +50,7 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={routes} />;
+  return <>{authReady && <RouterProvider router={routes} />}</>;
 }
 
 export default App;
