@@ -1,0 +1,48 @@
+.card {
+  display: flex;
+  background-color: #ffffff;
+  padding: 20px 30px;
+  width: 400px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  border-left: 2px solid green;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.card h4 {
+  font-size: 25px;
+}
+
+.card p {
+  font-size: 22px;
+}
+
+.trash {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  background-color: #ffffff;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.trash:hover {
+  background-color: #fbfbfb;
+}
+
+.card:hover .trash {
+  opacity: 1;
+  visibility: visible;
+}
