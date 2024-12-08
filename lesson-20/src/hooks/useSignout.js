@@ -1,4 +1,5 @@
 import { signOut } from "firebase/auth";
+import { auth } from "../firebase/firebaseConfig";
 
 // toast
 import { toast } from "sonner";
