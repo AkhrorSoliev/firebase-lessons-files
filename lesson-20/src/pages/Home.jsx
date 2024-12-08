@@ -7,12 +7,20 @@ import { useCollection } from "../hooks/useCollection";
 // components
 import TransactionsList from "../components/TransactionsList";
 import TransactionForm from "../components/TransactionForm";
+import { useGlobalContext } from "../hooks/useGlobalContext";
 
 function Home() {
-  const { data: transactions } = useCollection("transactions");
+  const { user } = useGlobalContext();
+  const { data: transactions } = useCollection("transactions", [
+    "uid",
+    "==",
+    user?.uid,
+  ]);
   return (
     <div className={`${styles.home} container`}>
-      {transactions && <TransactionsList transactions={transactions} />}
+      <div style={{ flexShrink: 0 }}>
+        {transactions && <TransactionsList transactions={transactions} />}
+      </div>
       <div>
         <h2>Add New Transacion:</h2>
         <TransactionForm />

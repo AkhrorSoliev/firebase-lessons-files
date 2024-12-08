@@ -10,7 +10,13 @@ import { toast } from "sonner";
 // custom hooks
 import { useFirestore } from "../hooks/useFirestore";
 
+// global context
+import { useGlobalContext } from "../hooks/useGlobalContext";
+
 function TransactionForm() {
+  const {
+    user: { uid },
+  } = useGlobalContext();
   const { addDocument } = useFirestore();
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
@@ -25,6 +31,7 @@ function TransactionForm() {
     addDocument({
       title,
       price: Number(price),
+      uid,
     });
 
     setTitle("");
