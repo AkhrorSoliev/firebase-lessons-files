@@ -23,7 +23,7 @@ function Navbar() {
 
         {user && (
           <div className={styles.avatar}>
-            <span>Hello, Akhror</span>
+            <span>Hello, {user.email}</span>
             <img src="https://picsum.photos/400" alt="" />
             <button onClick={signOutUser}>Logout</button>
           </div>
