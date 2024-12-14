@@ -16,9 +16,7 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     signup(displayName, email, password);
-
     setDisplayName("");
     setPassword("");
     setEmail("");

@@ -31,3 +31,8 @@ a {
   padding: 1px 2px;
   border-radius: 4px;
 }
+
+.button-wrappers {
+  display: flex;
+  justify-content: space-between;
+}
