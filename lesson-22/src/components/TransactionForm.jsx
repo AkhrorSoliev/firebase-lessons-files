@@ -12,11 +12,14 @@ import { useFirestore } from "../hooks/useFirestore";
 
 // global context
 import { useGlobalContext } from "../hooks/useGlobalContext";
+import { serverTimestamp } from "firebase/firestore";
+import { generateSvgBackground } from "../utils";
 
 function TransactionForm() {
   const {
     user: { uid },
   } = useGlobalContext();
+
   const { addDocument } = useFirestore();
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
@@ -31,9 +34,11 @@ function TransactionForm() {
     addDocument({
       title,
       price: Number(price),
+      edited: false,
+      createdTime: serverTimestamp(),
       uid,
+      bgImage: generateSvgBackground(),
     });
-
     setTitle("");
     setPrice("");
   };

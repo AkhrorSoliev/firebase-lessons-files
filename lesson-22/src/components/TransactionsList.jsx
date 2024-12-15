@@ -11,6 +11,9 @@ import { FaTrash, FaEdit } from "react-icons/fa";
 import { useFirestore } from "../hooks/useFirestore";
 import Modal from "./Modal";
 
+// format time
+import { formatDate } from "../utils";
+
 function TransactionsList({ transactions }) {
   const { deleteDocument, updateDocument } = useFirestore();
   const [item, setItem] = useState(null);
@@ -21,6 +24,7 @@ function TransactionsList({ transactions }) {
       {
         title,
         price,
+        edited: true,
       },
       setItem
     );
@@ -30,9 +34,13 @@ function TransactionsList({ transactions }) {
     <div>
       {item && <Modal setItem={setItem} changeItem={changeItem} item={item} />}
       {transactions.map((transaction) => {
-        const { id, title, price } = transaction;
+        const { id, title, price, createdTime, edited, bgImage } = transaction;
         return (
-          <div key={id} className={styles.card}>
+          <div
+            key={id}
+            className={styles.card}
+            style={{ backgroundImage: bgImage }}
+          >
             <h4>{title}</h4>
             <p>$ {price}</p>
             <span onClick={() => deleteDocument(id)} className={styles.trash}>
@@ -41,6 +49,11 @@ function TransactionsList({ transactions }) {
             <span onClick={() => setItem(transaction)} className={styles.edit}>
               <FaEdit />
             </span>
+
+            <small className={styles.time}>
+              {edited && "edited ,"}{" "}
+              {createdTime ? formatDate(createdTime) : "Loading..."}
+            </small>
           </div>
         );
       })}

@@ -1,6 +1,5 @@
 .card {
   display: flex;
-  background-color: #ffffff;
   padding: 20px 30px;
   width: 400px;
   align-items: center;
@@ -9,6 +8,18 @@
   border-left: 2px solid green;
   margin-bottom: 30px;
   position: relative;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: overlay;
+  transition: 0.3s;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.card:hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.3) 0px 2px 6px 2px;
 }
 
 .card h4 {
@@ -72,5 +83,23 @@
 
 .card:hover .edit {
   opacity: 1;
+  visibility: visible;
+}
+
+.time {
+  position: absolute;
+  left: 10px;
+  bottom: -15px;
+  background-color: #ffffff;
+  opacity: 0.5;
+  font-style: italic;
+  font-size: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.card:hover .time {
+  opacity: 0.5;
   visibility: visible;
 }
