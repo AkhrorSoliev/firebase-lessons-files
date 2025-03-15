@@ -2,7 +2,7 @@
 
 Ushbu kursda biz Firebase platformasining asosiy funksiyalarini ko'rib chiqamiz va ularni amaliy misollar bilan o'rganamiz. Firebase ilovalar yaratish, ma'lumotlar bazasini boshqarish va foydalanuvchilarni autentifikatsiyalash kabi ko'plab imkoniyatlarni taqdim etadi.
 
-## 📖 Kursning Mazmuni
+## 📖 Loyihaning Mazmuni
 
 1. **Kirish va Firebase-ni O'rnatish**
    - Firebase hisob qaydnomasini yaratish
