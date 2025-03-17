@@ -19,7 +19,11 @@ function Home() {
   return (
     <div className={`${styles.home} container`}>
       <div style={{ flexShrink: 0 }}>
-        {transactions && <TransactionsList transactions={transactions} />}
+        {transactions?.length ? (
+          <TransactionsList transactions={transactions} />
+        ) : (
+          <h2>You don't have transactions yet</h2>
+        )}
       </div>
       <div>
         <h2>Add New Transacion:</h2>
